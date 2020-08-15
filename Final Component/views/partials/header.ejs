@@ -1,0 +1,9 @@
+<div id="header">
+    <div id="heading-text">
+        <a href="index"><img src="images/dance.png" alt="home picture" /></a>
+        <p>INSIDERS</p>
+    </div>
+    <%   if(session != undefined){ %>
+    <span id="login-info">Welcome <%= session.FirstName %></span>
+    <% }%>
+</div>

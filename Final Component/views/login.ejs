@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Main Page</title>
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/login.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="/utils/loginsignup.js"></script>
+</head>
+
+<body>
+  <header>
+    <% include partials/header.ejs %>
+    <% include partials/navigation.ejs %>
+  </header>
+  <section class="article">
+    <div id="main-content-area">
+      <div class="pass_note"></div>
+      <%
+        if(error){
+            error.forEach(function(item){%>
+      <div class="isa_error"><%=item.msg %></div>
+      <%});
+    }%>
+      <div class="login-page">
+        <div class="form">
+          <form class="register-form" method="POST" action="/myConnections/usersignin">
+            <input type="text" name="userid" placeholder="userid [Should contain only alphabets and numbers]" />
+            <input type="text" name="firstname" placeholder="firstname" />
+            <input type="text" name="lastname" placeholder="lastname" />
+            <input type="password" name="newpassword" placeholder="new password" />
+            <input type="password" name="confirmpassword" placeholder="confirm password" />
+            <input type="text" name="email" placeholder="email address" />
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+          </form>
+          <form class="login-form" method="POST" action="/myConnections/userlogin">
+            <input type="text" name="email" placeholder="email" />
+            <input type="password" name="password" placeholder="password" />
+            <button>login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <% include partials/footer.ejs %>
+  </footer>
+
+
+
+
+
+  <script>
+    var a = 2;
+    $('.message a').click(function () {
+      if (a === 2) {
+        $("div.isa_error").remove();
+        $("div.pass_note").text('Password Note : Minimum length 8, Maximum length 12,Must have uppercase letters, Must have lowercase letters, Must have digits, Should not have spaces');
+        a++;
+      } else {
+        if ($("div.pass_note").text() != '') {
+       
+          $("div.pass_note").text('');
+          $("div.isa_error").remove();
+        } else {
+
+          $("div.pass_note").text('Password Note : Minimum length 8, Maximum length 12,Must have uppercase letters, Must have lowercase letters, Must have digits, Should not have spaces');
+        }
+      }
+
+      $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
+    if ('<%=page%>' === 'usersignin') {
+      $('div.pass_note').text('Password Note : Minimum length 8, Maximum length 12,Must have uppercase letters, Must have lowercase letters, Must have digits, Should not have spaces');
+      a++;
+      $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+    }
+
+  </script>
+</body>
+
+</html>

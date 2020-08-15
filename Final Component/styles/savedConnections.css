@@ -1,0 +1,81 @@
+#my-fav .article-main-content{
+    border-bottom: 2px solid #888;
+    padding-bottom: 40px;
+}
+#my-fav .myfav-header-div{
+    width: 100%;
+    border-bottom: 2px solid #888;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+#my-fav .myfav-header-div div {
+    width: 17%;
+    height: 30px;
+    padding: 10px 0px;
+    display: inline-block;
+    text-align: left;
+}
+
+#my-fav input[type=button]{
+    padding: 10px 20px;
+}
+
+#my-fav .myfav-header-div .myfav-header-tick{
+    width: 2%;
+}
+#my-fav .myfav-header-div .myfav-header-rating{
+    width: 23%;
+}
+#my-fav .myfav-header-div .myfav-header-read{
+    width: 6%;
+}
+#my-fav .myfav-row{
+    clear: both;
+    width: 100%;
+    display: inline-block;
+    padding: 10px 0px;
+    overflow: auto;
+}
+#my-fav .myfav-row div{
+    float: left;
+    height: 50px;
+    text-align: left;
+    word-break: break-word;
+    padding-bottom: 15px;
+}
+#my-fav .myfav-article-tick{
+    width: 2%;
+    padding-right: 10px;
+}
+.myfav-article-tick.active:before{
+    content: "\2714";
+    color: rgb(43, 139, 43);
+    font-size: 1.3em;
+}
+#my-fav .myfav-article-title{
+    width: 17%;
+}
+#my-fav .myfav-article-cat{
+    width: 17%;
+}
+#my-fav .myfav-article-rate{
+    width: 23%;
+}
+#my-fav .myfav-article-read{
+    width: 6%;
+    text-align: center;
+}
+#my-fav .myfav-article-action{
+    width: 30%;
+    text-align: center;
+}
+
+.legends{
+    position: absolute;
+    bottom : 5px;
+}
+.legends .myfav-article-tick{
+    float: left;
+    padding-right: 10px;
+}

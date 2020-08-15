@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>connections</title>
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="styles/newconnection.css">
+  <link rel="stylesheet" type="text/css" href="styles/login.css">
+</head>
+
+<body>
+  <header>
+    <% include partials/header.ejs %>
+    <% include partials/navigation.ejs %>
+  </header>
+
+  <div id="main-content-area">
+    <div class="isa_error">*Note - Please enter future date</div>
+    <%
+            if(error){
+                error.forEach(function(item){%>
+    <div class="isa_error"><%=item.msg %></div>
+    <%});
+        } %>
+    <div class="form-style-5">
+      <form method='POST' action="\updateNewConnection">
+        <fieldset>
+
+          <legend><span class="number">1</span> Workshop Info</legend>
+          <input type="text" name="workshopname" value='<%=data.workshopName%>'
+            placeholder="Workshop Name [Min-5 Max-50] ">
+          <input type="hidden" name="workshopid" value='<%=data.workshopId%>'>
+          <label for="job">Workshop Type:</label>
+          <select id="job" value='<%=data.workshopType%>' name="workshoptype">
+            <option value="">None</option>
+            <%
+                      
+                      if(data.workshopType === 'Street Dance Workshops'){%>
+            <option value="Street Dance Workshops" selected>Street Dance</option>
+            <%}else{ %>
+            <option value="Street Dance Workshops">Street Dance</option>
+
+            <% } %>
+
+            <%
+                      
+                      if(data.workshopType === 'Disco/Electronic Workshops'){%>
+            <option value="Disco/Electronic Workshops" selected>Disco/Electronic</option>
+            <%}else{ %>
+            <option value="Disco/Electronic Workshops">Disco/Electronic</option>
+            <% } %>
+            <%
+                      
+                      if(data.workshopType === 'Old School Workshops'){%>
+            <option value="Old School Workshops" selected>Old School </option>
+            <%}else{ %>
+            <option value="Old School Workshops">Old School </option>
+
+            <% } %>
+
+          </select>
+        </fieldset>
+        <textarea name="details" placeholder="Details [Min-10 Max-500]"><%=data.details%></textarea>
+        <input type="text" name="location" value='<%=data.place%>'
+          placeholder="Enter Valid Google Address within United States">
+        <input type="date" value='<%=data.date%>' name="date">
+        <input type="submit" value="Update" />
+      </form>
+    </div>
+  </div>
+  <footer>
+    <% include partials/footer.ejs %>
+  </footer>
+</body>
+
+</html>

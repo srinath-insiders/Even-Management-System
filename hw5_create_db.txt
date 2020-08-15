@@ -1,0 +1,145 @@
+use workshop
+
+db.connections.drop();
+db.users.drop();
+db.userconnections.drop();
+
+db.createCollection("connections");
+db.createCollection("users");  
+db.createCollection("userconnections");  
+
+db.connections.insert([{
+        "workshopId" : "Anm89755hjm",
+        "workshopName" : "Breaking Workshop",
+        "workshopType" : "Street Dance Workshops",
+        "place" : "4800 Calhoun Rd, Houston, TX 77004",
+        "details" : "Breaking also called breakdancing or bboying bgirling, is an athletic style of street dance. While diverse in the amount of variation available in the dance, breakdancing mainly consists of four kinds of movement toprock, downrock, power moves and freezes.",
+        "date" : "2015-12-15",
+        "image" : "breakdance.jfif",
+	"createdby" : "srinathrupa786@gmail.com"
+},
+{
+        "workshopId" : "Bhjk67899njm",
+        "workshopName" : "House Workshop",
+        "workshopType" : "Street Dance Workshops",
+        "place" : "University of California, Berkeley",
+        "details" : "House dance is a social dance and Street dance primarily danced to house music, that has roots in the clubs of Chicago and of New York. The main elements of House dance include Footwork, Jacking, and Lofting.",
+        "date" : "2015-12-15",
+        "image" : "house.jfif",
+	"createdby" : "swathirupa786@gmail.com"
+
+},
+{
+        "workshopId" : "Clou09099njk",
+        "workshopName" : "Hiphop Workshop",
+        "workshopType" : "Street Dance Workshops",
+        "place" : "1 Washington Sq, San Jose, CA 95192",
+        "details" : "Hiphop dance refers to street dance styles primarily performed to hiphop music or that have evolved as part of hiphop culture. It includes a wide range of styles primarily breaking which was created in the 1970s and made popular by dance crews in the United States.",
+        "date" : "2015-12-15",
+        "image" : "hiphop.png",
+	"createdby" : "srinathrupa786@gmail.com"
+},
+{
+        "workshopId" : "Lbyu5677bars",
+        "workshopName" : "Locking Workshop",
+        "workshopType" : "Street Dance Workshops",
+        "place" : "Columbus, OH 43210",
+        "details" : "Locking is a style of funk dance which is today also associated with hip hop. The name is based on the concept of locking movements, which basically means freezing from a fast movement and locking in a certain position, holding that position for a short while and then continuing at the same speed as before.",
+        "date" : "2015-12-15",
+        "image" : "Locking.jpg",
+	"createdby" : "swathirupa786@gmail.com"
+},
+{
+        "workshopId" : "Pbhj0997bahs",
+        "workshopName" : "Waacking Workshop",
+        "workshopType" : "Disco/Electronic Workshops",
+        "place" : "800 W Campbell Rd, Richardson, TX 75080",
+        "details" : "Waack Punk is a form of dance created in the LGBT clubs of Los Angeles, during the 1970s disco era. This dance style was named punking because punk was a derogatory term for gay men in the 70s. Naming the style punking was a way of turning this negative term into something positive. ",
+        "date" : "2015-12-15",
+        "image" : "waacking.jfif",
+	"createdby" : "srinathrupa786@gmail.com"
+},
+{
+        "workshopId" : "Nvga5677gtsn",
+        "workshopName" : "Freestep Workshop",
+        "workshopType" : "Disco/Electronic Workshops",
+        "place" : "360 Huntington Ave, Boston, MA 02115",
+        "details" : "Step dance is the generic term for dance styles in which the footwork is the most important part of the dance. ... Tap dancing is a modern form of step dancing taking its influence from a variety of older stepforms. ",
+        "date" : "2015-12-15",
+        "image" : "freestep.jfif",
+	"createdby" : "swathirupa786@gmail.com"
+},
+{
+        "workshopId" : "Mvga1782yuh",
+        "workshopName" : "Robotic Workshop",
+        "workshopType" : "Disco/Electronic Workshops",
+        "place" : "Champaign, IL",
+        "details" : "Michael Jackson invented Robot dance on stage. He was the pioneer of robot dancing as he started this form of dance and others followed and improvised further. It was introduced for the first time to the world in 1975 with the Jackson 5s single Dancing Machine",
+        "date" : "2015-12-15",
+        "image" : "Robotic.jfif",
+	"createdby" : "srinathrupa786@gmail.com"
+},
+{
+        "workshopId" : "Vsjjn9909wyg",
+        "workshopName" : "Penguin Workshop",
+        "workshopType" : "Disco/Electronic Workshops",
+        "place" : "Illinois Institute of Technology 10 West 35th Street Chicago, IL 60616-3793",
+        "details" : "Could the worlds latest dance craze be on its way from one of the most conservative nations on the planet, the Kingdom of Saudi Arabia A leading Arab newspaper seems to think so. Al Arabiya reports that the penguin dance is becoming enormously popular among Saudi youth.",
+        "date" : "2015-12-15",
+        "image" : "Penguin.jfif",
+	"createdby" : "swathirupa786@gmail.com"
+}]);
+
+db.users.insert([{
+        "userId" : "sri24",
+        "firstName" : "Srinath",
+        "lastName" : "Muralinathan",
+        "emailAddress" : "srinathrupa786@gmail.com",
+	 "password" : {
+                "iv" : "fadd4b7f743fac3422aaad2dcfa769ad",
+                "encryptedData" : "187dd14a4c5f543a1f8c25d0a3ac64dc",
+                "key" : BinData(0,"OjPBVs7iyUE6uT2gzYPMVHJKBIHwLADlYr5JxqP5Pik=")
+        }
+},{
+        "userId" : "swa21",
+        "firstName" : "Swathi",
+        "lastName" : "Muralinathan",
+        "emailAddress" : "swathirupa786@gmail.com",
+	 "password" : {
+                "iv" : "38bb7ef54964e26cdea91cf943735ea4",
+                "encryptedData" : "cdea926747039241c40be8682cfd4866",
+                "key" : BinData(0,"xKqwoKYjWIHM9sxZ0S3/dMOEI6Fha6/WscJfmAhzNog=")
+        }
+}]);
+
+
+
+db.userconnections.insert([{
+        "userId" : "sri24",
+        "connectionId" : "Lbyu5677bars",
+        "connectionType" : "Street Dance Workshops",
+        "rsvp" : "Yes",
+        "connectionName" : "Locking Workshop"
+},
+{
+        "userId" : "sri24",
+        "connectionId" : "Mvga1782yuh",
+        "connectionType" : "Disco/Electronic Workshops",
+        "rsvp" : "Maybe",
+        "connectionName" : "Robotic Workshop"
+},{
+        "userId" : "swa21",
+        "connectionId" : "Lbyu5677bars",
+        "connectionType" : "Street Dance Workshops",
+        "rsvp" : "Yes",
+        "connectionName" : "Locking Workshop"
+},
+{
+        "userId" : "swa21",
+        "connectionId" : "Mvga1782yuh",
+        "connectionType" : "Disco/Electronic Workshops",
+        "rsvp" : "Maybe",
+        "connectionName" : "Robotic Workshop"
+}]);
+
+

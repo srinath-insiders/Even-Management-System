@@ -1,0 +1,32 @@
+
+.item-rating{
+    width: 100%;
+    display: inline-block;
+}
+aside.item-image-container{
+    width: 30%;
+    overflow: hidden;
+    float: left;
+}
+.item-info{
+    width: 60%;
+    margin-left: 10px;
+    float: left;
+    margin-top: 0;
+    text-overflow: ellipsis;
+}
+.item-info h2{
+    margin-top : 2px; 
+    float: left;
+}
+.item-info .rate{
+    padding: 0px;
+}
+.article-main-content{
+    display: inline-block;
+    margin-top: 20px;
+}
+div.item-action{
+    display: inline-block;
+    width: 100%;
+}

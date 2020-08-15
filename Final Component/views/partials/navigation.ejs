@@ -1,0 +1,17 @@
+<div id="top-bar">
+    <ul>
+        <%   if(session === undefined){ %>
+
+        <li><a href="login">LOGIN IN/SIGN UP</a></li>
+        <li><a href="connections">WORKSHOPS</a></li>
+        <% } %>
+
+        <%   if(session != undefined){ %>
+        <li><a href="newConnection">START NEW WORKSHOP</a></li>
+        <li><a href="connections">WORKSHOPS</a></li>
+        <li><a href="myConnections">MY WORKSHOPS</a></li>
+        <li><a href="/myConnections/logout">LOG OUT</a></li>
+        <% } %>
+
+    </ul>
+</div>

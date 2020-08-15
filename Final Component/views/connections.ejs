@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>connections</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/connections.css">
+</head>
+
+<body>
+    <header>
+        <% include partials/header.ejs %>
+        <% include partials/navigation.ejs %>
+    </header>
+
+    <div id="main-content-area">
+        <div class="article">
+            <section class="article-main-content">
+                <h2><a class="no-link">Register for the workshops that you are interested in</a></h2>
+
+
+                <% 
+                        connectionList.forEach(function(type){ %>
+
+                <section>
+                    <% 
+                                var count = 0;
+                                connections.forEach(function(item){  
+                                    if(item.workshopType === type){
+        
+                                        if(count===0){ %>
+                    <br>
+                    <h3><%= item.workshopType %></h3>
+                    <br>
+                    <ul>
+                        <% } %>
+
+                        <li><a href="/connection?connectionID=<%= item.workshopId %>"> <%= item.workshopName %> </a>
+                        </li>
+                        <% count++;
+                            }
+                            }); 
+                                %>
+                    </ul>
+                </section>
+                <br>
+                <% }); %>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <% include partials/footer.ejs %>
+    </footer>
+</body>
+
+</html>

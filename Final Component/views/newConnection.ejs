@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>connections</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/newconnection.css">
+    <link rel="stylesheet" type="text/css" href="styles/login.css">
+</head>
+
+<body>
+    <header>
+        <% include partials/header.ejs %>
+        <% include partials/navigation.ejs %>
+    </header>
+
+    <div id="main-content-area">
+        <div class="isa_error">*Note - Please enter future date</div>
+        <%
+            if(error){
+                error.forEach(function(item){%>
+        <div class="isa_error"><%=item.msg %></div>
+        <%});
+        } %>
+        <div class="form-style-5">
+            <form method='POST' action="\addNewConnection">
+                <fieldset>
+                    <legend><span class="number">1</span> Workshop Info</legend>
+                    <input type="text" name="workshopname" placeholder="Workshop Name [Min-5 Max-50] ">
+                    <label for="job">Workshop Type:</label>
+                    <select id="job" name="workshoptype">
+                        <option value="">None</option>
+                        <option value="Street Dance Workshops">Street Dance</option>
+                        <option value="Disco/Electronic Workshops">Disco/Electronic</option>
+                        <option value="Old School Workshops">Old School </option>
+                    </select>
+                </fieldset>
+                <textarea name="details" placeholder="Details [Min-10 Max-500]"></textarea>
+                <input type="text" name="location" placeholder="Enter Valid Google Address within United States">
+                <input type="date" name="date">
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
+    </div>
+    <footer>
+        <% include partials/footer.ejs %>
+    </footer>
+</body>
+
+</html>

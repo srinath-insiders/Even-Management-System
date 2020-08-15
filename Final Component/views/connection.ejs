@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Connection</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/connection.css">
+</head>
+
+<body>
+    <header>
+        <% include partials/header.ejs %>
+        <% include partials/navigation.ejs %>
+    </header>
+
+    <div id="main-content-area">
+        <div class="article">
+            <aside class="item-image-container"><img src="images/<%= conObj.image %>" alt="ML BG" width="400"
+                    height="260" /></aside>
+            <section class="item-info">
+                <h2><%= conObj.workshopName %></h2>
+                <br>
+                <br>
+                <h2>Willing to go to the workshop</h2>
+
+                <div class="item-action">
+
+                    <% if(session === undefined){ %>
+
+                    <input type="button" class="button" id="Yes" value="Yes">
+                    <input type="button" class="button" id="No" value="No">
+                    <input type="button" class="button" id="MayBe" value="May Be">
+                    <% } %>
+
+                    <% if(session != undefined){ %>
+
+                    <form method="post" action="myConnections/rsvp?connectionID=<%= conObj.workshopId %>&rsvp=Maybe">
+                        <button class="button" id="Yes" name="formValue" value="Yes">Yes </button>
+                        <button class="button" id="No" name="formValue" value="No">No</button>
+                        <button class="button" id="MayBe" name="formValue" value="Maybe"> May Be</button>
+                    </form>
+
+                    <% } %>
+                </div>
+                <br>
+                <br>
+                <p>Hosted by Insiders</p>
+                <p><%= conObj.date %></p>
+                <p><%= conObj.place %></p>
+                <div class="article-main-content">
+                    <p><%= conObj.details %></p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <footer>
+        <% include partials/footer.ejs %>
+    </footer>
+</body>
+
+</html>

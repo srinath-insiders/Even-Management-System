@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Saved Connections</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/savedConnections.css">
+</head>
+
+<body>
+    <header>
+        <% include partials/header.ejs %>
+        <% include partials/navigation.ejs %>
+    </header>
+
+    <div id="main-content-area">
+        <h2><a class="no-link">Events that you are attending</a></h2>
+        <br>
+        <div id="my-fav" class="article">
+            <section class="article-main-content">
+                <div class="myfav-header-div">
+                    <div class="myfav-header-title">Workshop</div>
+                    <div class="myfav-header-title">Category</div>
+                    <div class="myfav-header-title">Going ?</div>
+                    <div class="myfav-header-title">Actions</div>
+                </div>
+
+                <%           data.UserConnectionList.forEach(function(item){  
+%>
+                <div class="myfav-row">
+
+                    <div class="myfav-article-title"><%= item.connectionName %></div>
+                    <div class="myfav-article-title"><%= item.connectionType %></div>
+                    <div class="myfav-article-title">&nbsp;&nbsp;&nbsp;<%= item.rsvp %></div>
+                    <div class="myfav-article-action">
+                        <form method="post"
+                            action="/myConnections/update?connectionID=<%= item.connectionId %>&rsvp=<%= item.rsvp %>">
+                            <button class="button" id="Update<%= item.connectionId %>" name="formValue"
+                                value="Update">Update </button>
+                            <button class="button" id="Delete<%= item.connectionId %>" name="formValue"
+                                value="Delete">Delete </button>
+                        </form>
+                    </div>
+                    <%
+                        if(item.rsvp === 'Yes' || item.rsvp === 'Maybe'){ %>
+                    <a href="/findyourroute?connectionID=<%= item.connectionId %>">Find your route</a>
+                    <% }
+                        %>
+                </div>
+                <% }); %>
+
+
+
+                <br>
+                <br>
+
+            </section>
+
+            <h2><a class="no-link">Events that you hosted</a></h2>
+            <section class="article-main-content">
+                <div class="myfav-header-div">
+
+                    <div class="myfav-header-title">Workshop</div>
+                    <div class="myfav-header-title">Category</div>
+                    <div class="myfav-header-title">Actions</div>
+
+                </div>
+                <%           data.UserCreatedConnectionList.forEach(function(item){  
+                        %>
+                <div class="myfav-row">
+
+                    <div class="myfav-article-title"><%= item.workshopName %></div>
+                    <div class="myfav-article-title"><%= item.workshopType %></div>
+
+                    <div class="myfav-article-action">
+                        <form method="post"
+                            action="/myConnections/updateConnectionsList?connectionID=<%= item.workshopId %>">
+                            <button class="button" id="update<%= item.workshopId %>" name="formValue"
+                                value="Update">Edit </button>
+                            <button class="button" id="delete<%= item.workshopId %>" name="formValue"
+                                value="Delete">Delete </button>
+                        </form>
+                    </div>
+
+                </div>
+                <% }); %>
+
+
+
+                <br>
+                <br>
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+    <footer>
+        <% include partials/footer.ejs %>
+    </footer>
+
+</body>
+
+</html>
